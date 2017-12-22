@@ -1,16 +1,24 @@
 # -*- coding: utf-8 -*-
 
 class Ember(object):
-    def __init__(self, nev, szuletesi_datum, anyja_neve):
+    def __init__(self, nev, szuletesi_datum, anyja_neve, hazi_allatok=[]):
         if nev is not None and szuletesi_datum is not None and anyja_neve is not None:
             self.nev = nev
             self.szuletesi_datum = szuletesi_datum
             self.anyja_neve = anyja_neve
+            self.hazastars= None
+            self.hazi_allatok=hazi_allatok
         else:
             raise ValueError("A mezők kitöltése kötelező!")
 
     def __repr__(self):
         return self.nev
+
+    def hazasodik(self, hazastars):
+        if hazastars is Ember:
+            self.hazastars = hazastars
+            hazastars.hazastars = self
+
 
 class Jarmu(object):
     def __init__(self, szin, marka, evjarat, kapacitas=5):
@@ -20,11 +28,11 @@ class Jarmu(object):
         self.kapacitas = kapacitas
         self.utasok = []
 
-
     def utas_beszall(self, utas):
         if self.kapacitas > len(self.utasok):
             self.utasok.append(utas)
             print("Jelenleg {} utas tartozkódik a járműben!".format(len(self.utasok)))
+
     
     def utas_lista(self):
         print("A {} jármű utasai: {}".format(self.szin, self.utasok))
@@ -38,6 +46,11 @@ class Auto(Jarmu):
     def __init__(self, szin, marka, evjarat, utas_kapacitas=4, csomag_kapacitas=40):
         super().__init__(szin, marka, evjarat, utas_kapacitas)
         self.csomag_kapacitas = csomag_kapacitas
+
+class Motor(Jarmu):
+    def __init__(self, szin, marka, evjarat, utas_kapacitas=2):
+        super().__init__(szin, marka, evjarat, utas_kapacitas)
+
         
 
 
