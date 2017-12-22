@@ -1,6 +1,3 @@
-import math
-
-
 class Complex:
     def __init__(self, real=0, imaginary=0):
         self.real = real
@@ -10,7 +7,12 @@ class Complex:
         return ""
 
     def __add__(self, other):
-        return Complex(self.real + other.real, self.imaginary + other.imaginary)
+        # TODO: leellenőrizni, hogy az 'other' csak valós vagy egy másik complex szám lehessen
+        # valós: type(other) == float
+
+
+    # TODO: megírni a kivonás függvényt
+
 
 
 def main():
@@ -18,11 +20,8 @@ def main():
     masodik = Complex(0, 2)
 
     print(elso)
-    # masodik.phase = 45
     print(masodik)
     harmadik = elso + masodik
-    print(harmadik)
-    # harmadik -= masodik
     print(harmadik)
 
 

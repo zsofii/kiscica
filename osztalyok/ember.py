@@ -18,7 +18,11 @@ class Ember:
     def __repr__(self):
         return self.nev
 
+    def __add__(self, other):
+        self.hazasodik(other)
+
     def hazasodik(self, hazastars):
+        # TODO: leellenőrizni, hogy még nem házas-e!!
         if type(hazastars) is Ember:
             self.hazastars = hazastars
             hazastars.hazastars = self
