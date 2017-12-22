@@ -19,6 +19,7 @@ class Jarmu(object):
         self.evjarat = evjarat
         self.kapacitas = kapacitas
         self.utasok = []
+        self.ajto = None
 
 
     def utas_beszall(self, utas):
