@@ -1,3 +1,4 @@
 # pycharm fájlok kivételezése
 /.idea
 .idea/**
+*.pyc
