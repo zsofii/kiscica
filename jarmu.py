@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class Jarmu:
     def __init__(self, rendszam, szin, marka, evjarat, kapacitas=5):
         self.szin = szin

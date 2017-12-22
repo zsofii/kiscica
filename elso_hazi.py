@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import ember
-import jarmu
-
-
+from ember import Ember
+from jarmu import Auto, Motor
 
 elso = Auto("ABC-123", "kék", "Ford", evjarat="1994", csomag_kapacitas=30)  # ez új példány == new instance, amit a konstruktor (constructor) hoz létre
 masodik = Auto("TST-111", "sárga", "Fiat", "2001", 4)  # ez új példány == new instance, amit a konstruktor (constructor) hoz létre

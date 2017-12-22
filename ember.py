@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class Ember:
     def __init__(self, nev, szuletesi_datum, anyja_neve, hazi_allatok=None):
         if nev is not None and szuletesi_datum is not None and anyja_neve is not None:
