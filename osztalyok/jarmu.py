@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class Jarmu:
     def __init__(self, rendszam, szin, marka, evjarat, kapacitas=5):
         self.szin = szin
@@ -29,11 +30,11 @@ class Jarmu:
 
 class Auto(Jarmu):
     def __init__(self, rendszam, szin, marka, evjarat, utas_kapacitas=4, csomag_kapacitas=40):
-        super().__init__(rendszam, szin, marka, evjarat, utas_kapacitas)
+        super(Auto, self).__init__(rendszam, szin, marka, evjarat, utas_kapacitas)
         self.csomag_kapacitas = csomag_kapacitas
 
 
 class Motor(Jarmu):
     def __init__(self, rendszam, szin, marka, evjarat, utas_kapacitas=2):
-        super().__init__(rendszam, szin, marka, evjarat, utas_kapacitas)
+        super(Motor, self).__init__(rendszam, szin, marka, evjarat, utas_kapacitas)
 
