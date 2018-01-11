@@ -7,7 +7,7 @@ elso = Auto("ABC-123", "kék", "Ford", evjarat="1994", csomag_kapacitas=30)  # e
 masodik = Auto("TST-111", "sárga", "Fiat", "2001", 4)  # ez új példány == new instance, amit a konstruktor (constructor) hoz létre
 zsofi = Ember("zsófi", "1993-09-06", "Mária")
 elso.utas_beszall(zsofi)  # <==> ekvivalens utas_beszall(elso)
-print(elso.utasok[0].nev)
+print(elso.__utasok[0].nev)
 
 andris = Ember("andris", "1992-10-17", "ágnes")
 elso.utas_beszall(andris)
