@@ -23,11 +23,7 @@ class Ember:
         self.hazasodik(other)
 
     def __sub__(self, other):
-        if self.hazastars is other:
-            self.elvalik(other)
-            print("{} es {} elvaltak".format(self, other))
-        else:
-            print("{} es {} nem hazasodtak ossze, nem valhatnak el".format(self, other))
+        self.elvalik(other)
 
     def hazasodik(self, hazastars):
         if self.hazastars is None:
@@ -47,9 +43,9 @@ class Ember:
         return datetime.now().date().year - self.szuletesi_datum.year
 
     def elvalik(self, hazastars):
-        if self.hazastars is not None:
+        if self.hazastars is hazastars:
             self.hazastars = None
             hazastars.hazastars = None
-            print("{} es {} elvalatak egymastol".format(self, hazastars))
+            print("{} es {} elvaltak egymastol".format(self, hazastars))
         else:
-            print("{} nem is volt hazas, nem valhat el".format(self))
+            print("{} es {} nem hazasodtak ossze, nem valhatnak el".format(self, hazastars))
