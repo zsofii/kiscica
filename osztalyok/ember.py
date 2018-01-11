@@ -28,28 +28,26 @@ class Ember:
             self.elvalik(other)
             print("{} es {} elvaltak".format(self, other))
         else:
-            print ("{} es {} nem hazasodtak ossze, nem valhatnak el".format(self, other))
-
+            print("{} es {} nem hazasodtak ossze, nem valhatnak el".format(self, other))
 
     def hazasodik(self, hazastars):
-        if self.hazastars is not None:
-            print("{} mar nem hazasodhat, van mar hazastarsa!".format(self))
-
-        # TODO: leellenőrizni, hogy még nem házas-e!!
-        if type(hazastars) is Ember:
-            self.hazastars = hazastars
-            hazastars.hazastars = self
-            print("{} összeházasodott {} -val/vel!".format(self, hazastars))
+        if self.hazastars is None:
+            # TODO: leellenőrizni, hogy még nem házas-e!!
+            if type(hazastars) is Ember:
+                self.hazastars = hazastars
+                hazastars.hazastars = self
+                print("{} összeházasodott {} -val/vel!".format(self, hazastars))
+            else:
+                raise TypeError("A házastárs nem ember!")
+            if self.eletkor < 18:
+                print("{} nem hazasodhat, meg kiskoru".format(self))
         else:
-            raise TypeError("A házastárs nem ember!")
-        if self.eletkor < 18:
-            print("{} nem hazasodhat, meg kiskoru".format(self))
+            print("{} mar nem hazasodhat, van mar hazastarsa!".format(self))
 
     def elvalik(self, hazastars):
         if self.hazastars is not None:
             self.hazastars = None
             hazastars.hazastars = None
-            print ("{} es {} elvalatak egymastol".format(self, hazastars))
+            print("{} es {} elvalatak egymastol".format(self, hazastars))
         else:
-            print ("{} nem is volt hazas, nem valhat el".format(self))
-
+            print("{} nem is volt hazas, nem valhat el".format(self))
