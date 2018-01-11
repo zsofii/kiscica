@@ -20,7 +20,6 @@ class Complex:
         else:
             print("A második operandus nem szám!")
 
-
     def __sub__(self, other):
         if isinstance(other, Complex):
             return self.kivon(other)
@@ -41,7 +40,7 @@ def main():
     negyedik = harmadik + 10
     print(negyedik)
     negyedik -= harmadik
-    print (negyedik)
+    print(negyedik)
 
 
 if __name__ == "__main__":

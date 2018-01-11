@@ -19,6 +19,10 @@ class Ember:
     def __repr__(self):
         return self.nev
 
+    @staticmethod
+    def kromoszoma_szam():
+        return 46
+
     def __add__(self, other):
         self.hazasodik(other)
 

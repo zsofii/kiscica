@@ -1,4 +1,4 @@
-from osztalyok.allat import Macska, Kutya
+from osztalyok.allat import Macska, Kutya, Allat
 from osztalyok.ember import Ember
 
 pali = Macska("Pali")
@@ -15,3 +15,11 @@ balazs - geza
 balazs + geza
 
 print(balazs.hazi_allatok)
+
+print(geza.kromoszoma_szam())
+
+print(pali.fajnev())
+
+tigris = Allat("tigris")
+
+
