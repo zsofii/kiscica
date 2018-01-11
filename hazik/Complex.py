@@ -9,6 +9,9 @@ class Complex:
     def osszead(self, masik):
         return Complex(self.real + masik.real, self.imaginary + masik.imaginary)
 
+    def kivon(self, masik):
+        return Complex(self.real - masik.real, self.imaginary - masik.imaginary)
+
     def __add__(self, other):
         if isinstance(other, Complex):
             return self.osszead(other)
@@ -18,8 +21,13 @@ class Complex:
             print("A második operandus nem szám!")
 
 
-def __sub__(self, other):
-    pass
+    def __sub__(self, other):
+        if isinstance(other, Complex):
+            return self.kivon(other)
+        elif isinstance(other, float) or isinstance(other, int):
+            return Complex(self.real - other, self.imaginary)
+        else:
+            print("A második operandus nem szám!")
 
 
 def main():
@@ -32,6 +40,8 @@ def main():
     print(harmadik)
     negyedik = harmadik + 10
     print(negyedik)
+    negyedik -= harmadik
+    print (negyedik)
 
 
 if __name__ == "__main__":
