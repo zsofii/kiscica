@@ -8,19 +8,30 @@ class Jarmu:
         self.evjarat = evjarat
         self.kapacitas = kapacitas
         self.__utasok = []
-        self.rendszam = rendszam
+        self.__rendszam = rendszam
 
     @property
     def utasok(self):
-        return self.__utasok
+        nevek = []
+        for utas in self.__utasok:
+            nevek.append(utas.nev)
+        return nevek
 
     @utasok.setter
     def utasok(self, value):
         self.__utasok = value
 
-    @utasok.getter
-    def utasok(self):
-        return self.__utasok
+    @property
+    def rendszam(self):
+        return self.__rendszam
+
+    @rendszam.setter
+    def rendszam(self, value):
+        if isinstance(value, str):
+            # TODO: megfelelő-e a rendszám formátuma (3-5 karakter, 1-3 szám, de csak megfelelő párosításban)
+            pass
+        else:
+            raise TypeError("A rendszámnak szövegnek kell lennie!")
 
     def utas_beszall(self, utas):
         if self.kapacitas > len(self.__utasok):
