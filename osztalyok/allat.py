@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 
 class Allat(ABC):
     @abstractmethod
-    def __init__(self):
+    def __init__(self, nev):
         pass
 
     def __repr__(self):
@@ -18,11 +18,11 @@ class Allat(ABC):
 
 class Macska(Allat):
     def __init__(self, nev):
-        super(Macska, self).__init__()
+        super(Macska, self).__init__(nev)
         self.nev = nev
 
 
 class Kutya(Allat):
     def __init__(self, nev):
-        super(Kutya, self).__init__()
-        self.nev = nev 
+        super(Kutya, self).__init__(nev)
+        self.nev = nev
