@@ -6,6 +6,8 @@ sajt = Macska("Sajt")
 
 szamoca = Kutya("Szamóca")
 
-andris = Ember("Vidosits András", "1992-10-17", "Nagy Ágnes", [pali, sajt, szamoca])
+balazs = Ember("Sajtos Balázs", "1992.10.17.", "Tóth Ágota", [pali, sajt, szamoca])
+geza = Ember("Géza", "1999.10.17.", "Tóth Ágota", [pali, sajt, szamoca])
+balazs + geza
 
-print(andris.hazi_allatok)
+print(balazs.hazi_allatok)
