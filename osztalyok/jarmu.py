@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-class Jarmu:
-    def __init__(self, rendszam, szin, marka, evjarat, kapacitas=5):
-        self.szin = szin
-        self.marka = marka
-        self.evjarat = evjarat
-        self.kapacitas = kapacitas
-        self.__utasok = []
-        self.__rendszam = rendszam
-
-    @property
+class Jarmu:@property
     def utasok(self):
         nevek = []
         for utas in self.__utasok:
@@ -20,6 +11,15 @@ class Jarmu:
     @utasok.setter
     def utasok(self, value):
         self.__utasok = value
+    def __init__(self, rendszam, szin, marka, evjarat, kapacitas=5):
+        self.szin = szin
+        self.marka = marka
+        self.evjarat = evjarat
+        self.kapacitas = kapacitas
+        self.__utasok = []
+        self.__rendszam = rendszam
+
+
 
     @property
     def rendszam(self):
