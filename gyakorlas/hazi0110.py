@@ -4,9 +4,12 @@ import numpy as np
 # TODO: kávézó nyitva/zárva
 # TODO: első dolgozó nyisson
 # TODO: nem lehet bejönni, amíg nincs nyitva
-# TODO: nem lehet vásárolni, ha nincs bent dolgozó
 # TODO: ha kimegy az utolsó dolgozó kimennek a vendégek és bezár az üzlet
 # TODO: rakodás
+
+class Beszallito:
+    def __init__(self, csomagter):
+        self.csomagter = csomagter
 
 class Termek:
     def __init__(self, nev, ar):
@@ -48,6 +51,10 @@ class Kavezo:
         self.dolgozok = []
         self.vendegek = []
         self.termekek = termekek
+        self.nyitva = False
+
+    def nyitas(self, dolgozo):
+        pass
 
     def bejon(self, szemely):
         if type(szemely) == Vendeg:
@@ -86,6 +93,7 @@ class Kavezo:
 
 
 def main():
+    Dolgozo("Andris")
     sanyi = Dolgozo("Sanyi")
     jozsi = Vendeg("jozsi", 600)
 
