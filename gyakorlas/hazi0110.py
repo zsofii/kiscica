@@ -2,6 +2,8 @@ import numpy as np
 
 
 # TODO: kávézó nyitva/zárva
+# TODO mielott barki bejon egy dolgozonak be kell jonni es ki kell nyitni
+# TODO ha nincs meg nyitva a kavazo, akkor a vendegeket el kell kuldeni
 # TODO: első dolgozó nyisson
 # TODO: nem lehet bejönni, amíg nincs nyitva
 # TODO: ha kimegy az utolsó dolgozó kimennek a vendégek és bezár az üzlet
@@ -41,6 +43,9 @@ class Vendeg(Ember):
         self.nev = nev
         self.penz = penz
 
+class Cica:
+    pass
+
 
 class Kavezo:
     def __init__(self, nev, cim, elerhetoseg, termekek, kassza=0):
@@ -62,7 +67,10 @@ class Kavezo:
         elif type(szemely) == Dolgozo:
             self.dolgozok.append(szemely)
 
-        print("{} bejött, ezért jelenleg {} személy ({}) tartozkodik az uzletben".format(szemely, len(self.vendegek) + len(self.dolgozok), self.vendegek + self.dolgozok))
+        print("{} bejött, ezért jelenleg {} személy ({}) tartozkodik az uzletben".format(szemely,
+                                                                                         len(self.vendegek) + len(
+                                                                                             self.dolgozok),
+                                                                                         self.vendegek + self.dolgozok))
 
     def rendel(self, vendeg):
         if vendeg in self.vendegek:  # leellenorzi, hogy egyaltalan benn van-e
@@ -73,7 +81,8 @@ class Kavezo:
                     vendeg.penz -= valasztott_termek.ar
                     self.termekek[valasztott_termek] -= 1
                     self.kassza += valasztott_termek.ar
-                    print("{} nagyon élvezi a finom {}-t, {} forintért!".format(vendeg.nev, valasztott_termek.nev, valasztott_termek.ar))
+                    print("{} nagyon élvezi a finom {}-t, {} forintért!".format(vendeg.nev, valasztott_termek.nev,
+                                                                                valasztott_termek.ar))
                 else:
                     print("{}-nak/nek nincs elég pénze a vásárláshoz!".format(vendeg.nev))
             else:
@@ -91,6 +100,8 @@ class Kavezo:
         else:
             print("{} nem tartózkodik az üzletben!".format(szemely))
 
+    def nyitas(self, dolgozo):
+        pass
 
 def main():
     Dolgozo("Andris")

@@ -10,3 +10,5 @@ for utas in x:
 
 x =utasok()
 print(next(x))
+
+print(next(x))
