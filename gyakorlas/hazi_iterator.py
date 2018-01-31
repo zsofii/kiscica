@@ -1,7 +1,10 @@
-import numpy as np
 import datetime
+
+import numpy as np
+
 now = datetime.datetime.now()
 mostani_ido = 21
+
 
 # TODO: kávézó nyitva/zárva X
 # TODO mielott barki bejon egy dolgozonak be kell jonni es ki kell nyitni X
@@ -14,15 +17,15 @@ mostani_ido = 21
 
 
 class Beszallito:
-    def __init__(self, nev, termek={}):
+    def __init__(self, nev, termek=None):
         self.nev = nev
-        self.termek = termek
+        # self.termek = termek if termek is not None else {}
+        self.termek = termek or {}
 
     def kipakol(self):
         hozott_termek = {"udito": 12, "torta": 4, "kave": 20}
         for key in hozott_termek:
-           yield (hozott_termek[key] * key)
-
+            yield key, hozott_termek[key]
 
 
 class Termek:
@@ -95,7 +98,7 @@ class Kavezo:
                         self.termekek[valasztott_termek] -= 1
                         self.kassza += valasztott_termek.ar
                         print("{} nagyon élvezi a finom {}-t, {} forintért!".format(vendeg.nev, valasztott_termek.nev,
-                                                                                valasztott_termek.ar))
+                                                                                    valasztott_termek.ar))
                     else:
                         print("{}-nak/nek nincs elég pénze a vásárláshoz!".format(vendeg.nev))
                 else:
@@ -122,12 +125,11 @@ class Kavezo:
             print("Mivel minden dolgozo hazamegy a vendegeknek is el kell hagyniuk az uzletet")
             print("{} elhagyja/elhagyjak az uzletet".format(self.vendegek))
             self.vendegek = []
-            #print("{} jelenleg {} személy ({}) tartozkodik az uzletben".format(szemely, len(self.vendegek) + len(self.dolgozok), self.vendegek + self.dolgozok))
+            # print("{} jelenleg {} személy ({}) tartozkodik az uzletben".format(szemely, len(self.vendegek) + len(self.dolgozok), self.vendegek + self.dolgozok))
 
-    def bepakol(self, torta_be, udito_be, kave_be):
-        pass
-
-
+    def bepakol(self, beszallito):
+        for termek, keszlet in beszallito.kipakol():
+            pass
 
 
 def main():
@@ -152,7 +154,7 @@ def main():
 
     uzlet.bejon(noemi)
     # uzlet.rendel(kamilla)
-   # uzlet.rendel(jozsi)
+    # uzlet.rendel(jozsi)
 
     print(uzlet.vendegek)
     print(uzlet.kassza)
@@ -162,7 +164,8 @@ def main():
     for t in x:
         print(t)
 
-    #uzlet.bepakol(5, 4, 3)
+    # uzlet.bepakol(5, 4, 3)
+
 
 if __name__ == '__main__':
     main()
